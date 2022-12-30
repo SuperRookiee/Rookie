@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, Routes, Route } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { BiMenuAltRight } from "react-icons/bi";
-
 import head from "../assets/scss/Header.module.scss";
 
 const Header = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import GlobalStyles from './GlobalStyles';
-import { NavLink, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 
 import Space from './pages/Space';
@@ -12,7 +12,6 @@ const App = () => {
     <div>
       <GlobalStyles/>
       <Header />
-
       <Routes>
           <Route path='/' element={<Space />} />
           <Route path='/seoul' element={<Seoul />} />

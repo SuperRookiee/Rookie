@@ -11,6 +11,13 @@ const GlobalStyles = createGlobalStyle`
     body {
         margin: 0;
         padding: 0;
+
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    body::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera*/
     }
     
     a  {

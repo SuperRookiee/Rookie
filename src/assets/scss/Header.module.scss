@@ -3,16 +3,16 @@
 .header {
     background: $dark;
     height: $headerHeight;
-    padding: 0 1.5rem;
+    padding: 0 15px;
     transition: 0.3s ease all;
 
     @include breakpoint(md) {
-        padding: 0 1rem;
+        padding: 0 15px;
     }
 
     &.content {
         overflow: hidden;
-        color: $light;
+        color: white;
         max-width: 1920px;
         height: 100%;
         display: flex;
@@ -25,12 +25,12 @@
             font-size: 2rem;
             font-weight: bold;
             text-decoration: none;
-            color: $light;
+            color: white;
         }
 
         &.nav {
             top: 0;
-            right: 100%;
+            left: 100%;
             bottom: 0;
             width: 100%;
             height: 100vh;
@@ -45,6 +45,10 @@
             transform: translate(0);
             transition: 0.3s ease transform;
 
+            &.isMenu {
+                transform: translate(-100%);
+            }
+
             @include breakpoint(md) {
                 transform: none;
                 flex-direction: row;
@@ -53,6 +57,7 @@
                 height: 100%;
                 position: static;
             }
+
             ul {
                 list-style: none;
                 padding: 0;
@@ -81,11 +86,11 @@
                         transition: 0.3s ease all;
 
                         &:hover {
-                            background: rgba($light, 0.1);
+                            background: rgba(white, 0.1);
                         }
                         &:active {
                             border-radius: calc(#{$borderRadius} + 6px);
-                            background: linear-gradient(rgba($light, 0.1), rgba($light, 0.2));
+                            background: linear-gradient(rgba(white, 0.1), rgba(white, 0.2));
                         }
                     }
                 }
@@ -98,25 +103,9 @@
                 border-radius: $borderRadius;
                 font-size: 1rem;
                 font-family: inherit;
-                background: $primary;
                 color: $dark;
                 border: 1px solid transparent;
                 transition: 0.3s ease all;
-
-                &:hover {
-                    border-color: $primary;
-                    background: rgba($primary, 0.1);
-                    color: $primary;
-                }
-                &:active {
-                    border-color: $primary;
-                    background: linear-gradient(rgba($primary, 0.2), rgba($primary, 0.3));
-                    color: $primary;
-                }
-            }
-
-            &.isMenu {
-                transform: translate(100%);
             }
         }
 
@@ -127,10 +116,6 @@
             font-size: 2rem;
             transition: 0.3s ease all;
             position: relative;
-
-            &:hover {
-                color: $primary;
-            }
 
             @include breakpoint(md) {
                 display: none;
