@@ -1,0 +1,12 @@
+@import "./responsive.scss";
+
+.container {
+    // background: linear-gradient(45deg, #E94584, #24AADB);
+
+    background: $main; /* fallback for old browsers */
+    background: linear-gradient(45deg, $main, $sub);
+
+    height: calc(100vh - $headerHeight);
+    animation: gradient 16s linear infinite;
+    animation-direction: alternate;
+}

@@ -1,7 +1,0 @@
-{
-    "ImageMain": [
-        {"id": 1, "img": "./assets/img/nasa.jpg", "description": "Seoul, the capital of Korea"},
-        {"id": 2, "img": "./assets/img/nasa.jpg", "description": "trip to Seoul"},
-        {"id": 3, "img": "./assets/img/nasa.jpg", "description": "Seoul"}
-    ]
-}

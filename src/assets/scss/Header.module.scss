@@ -3,11 +3,11 @@
 .header {
     background: $dark;
     height: $headerHeight;
-    padding: 0 15px;
+    padding: 0 7px;
     transition: 0.3s ease all;
 
     @include breakpoint(md) {
-        padding: 0 15px;
+        padding: 0 10px;
     }
 
     &.content {
@@ -63,19 +63,19 @@
                 padding: 0;
                 display: flex;
                 flex-direction: column;
-                margin-bottom: $spacing-lg;
+                margin-bottom: $spacing_lg;
                 @include breakpoint(md) {
                     flex-direction: row;
                     align-items: center;
                     margin-bottom: 0;
-                    margin-right: calc(0.5rem + #{$spacing-md});
+                    margin-right: calc(0.5rem + #{$spacing_md});
                 }
                 li {
                     &:not(:last-child) {
-                        margin-bottom: $spacing-lg;
+                        margin-bottom: $spacing_lg;
                         @include breakpoint(md) {
                             margin-bottom: 0;
-                            margin-right: $spacing-md;
+                            margin-right: $spacing_md;
                         }
                     }
                     a {
