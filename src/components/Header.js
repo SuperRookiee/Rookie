@@ -40,13 +40,13 @@ const Header = () => {
                                  ${menuOpen && size.width < 768 ? head.isMenu : ""}`}>
                     <ul>
                         <li>
-                            <NavLink to="/seoul" onClick={menuToggleHandler}>PageOne</NavLink>
+                            <NavLink to="/" onClick={menuToggleHandler}>Home</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/seoul" onClick={menuToggleHandler}>PageTwo</NavLink>
+                            <NavLink to="/music" onClick={menuToggleHandler}>Music</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/test" onClick={menuToggleHandler}>PageThree</NavLink>
+                            <NavLink to="/about" onClick={menuToggleHandler}>About</NavLink>
                         </li>
                     </ul>
                 </nav>

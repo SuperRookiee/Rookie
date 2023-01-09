@@ -1,24 +1,26 @@
-import React from 'react';
-import GlobalStyles from './GlobalStyles';
+import React, { memo } from 'react';
 import { Routes, Route } from "react-router-dom";
+import GlobalStyles from './GlobalStyles';
 
-
-import Space from './pages/Space';
-import Seoul from './pages/Seoul';
 import Header from './components/Header';
 
-const App = () => {
+import Music from './pages/Music';
+import About from './pages/About';
+
+const App = memo(() => {
   return (
     <div>
       <GlobalStyles/>
-      <Header />
+      <Header/>
       <Routes>
-          <Route path='/' element={<Space />} />
-          <Route path='/seoul' element={<Seoul />} />
+          <Route path='/music' element={<Music />} />
+          <Route path='/About' element={<About />} />
       </Routes>
-
     </div>
   );
-}
+});
 
 export default App;
+
+// "proxy":"http://localhost:3001",
+// "start": "react-scripts start | json-server --watch ./src/assets/json/data.json --port 3001",

@@ -6,6 +6,7 @@ const GlobalStyles = createGlobalStyle`
     
     * {
         font-family: 'Noto Sans KR', sans-serif !important;
+        scroll-behavior: smooth;
     }
 
     body {
