@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios';
 
-export const getAuth = createAsyncThunk("music/getAuth", async (payload, { rejectWithValue }) => {
+export const getAuth = createAsyncThunk("MusicSlice/getAuth", async (payload, { rejectWithValue }) => {
     let result = null;
     const client_id = process.env.REACT_APP_CLIENT_ID;
     const client_secret = process.env.REACT_APP_CLIENT_SECRET;
@@ -11,9 +11,6 @@ export const getAuth = createAsyncThunk("music/getAuth", async (payload, { rejec
 
     try {
         const response = await axios.post('https://accounts.spotify.com/api/token', 'grant_type=client_credentials', {
-            params: {
-                query: payload.query
-            },
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -24,9 +21,10 @@ export const getAuth = createAsyncThunk("music/getAuth", async (payload, { rejec
                 password: client_secret,
             }
         });
-        
-        result = response.data;
         window.localStorage.setItem('token', response.data.access_token);
+        window.location.href = `${api_uri}?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=token&show_dialog=true`;
+        
+        result = response.data.access_token;
     } catch (err) {
         result = rejectWithValue(err.response);
     }

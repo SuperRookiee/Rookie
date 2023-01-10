@@ -1,8 +1,7 @@
 import React, { memo, useEffect } from 'react';
 import styled from 'styled-components';
 import m from '../assets/scss/Music.module.scss';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getAuth } from '../store/slices/MusicSlice';
 import Spinner from '../components/Spinner';
 import ErrorView from '../components/ErrorView';
@@ -40,8 +39,8 @@ const Music = memo(() => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-      dispatch(getAuth({}));
-  }, []);
+      dispatch(getAuth());
+  }, [dispatch]);
 
     return (
         <Container className={m.container}>
