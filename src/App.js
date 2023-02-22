@@ -4,6 +4,7 @@ import GlobalStyles from './GlobalStyles';
 
 import Header from './components/Header';
 
+import Home from './pages/Home';
 import Music from './pages/Music';
 import About from './pages/About';
 
@@ -13,6 +14,7 @@ const App = memo(() => {
       <GlobalStyles/>
       <Header/>
       <Routes>
+          <Route path='/' element={<Home />} />
           <Route path='/music' element={<Music />} />
           <Route path='/About' element={<About />} />
       </Routes>
