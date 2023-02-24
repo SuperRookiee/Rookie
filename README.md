@@ -21,9 +21,9 @@ React, Redux, JavaScript, styled-components, SCSS
 
 ### `Music`
 Spotify API르 이용한 음원차트 페이지 (테스트 진행 중)  
-계획1 - redux를 사용해 spotify의 OAuth 토큰 발급 
-계획2 - 발급받은 토큰을 이용해 Music.js에서 음원차트 json 데이터를 받아오기
-계획3 - 음원차트페이지 제작
+계획1 - redux를 사용해 spotify의 OAuth 토큰 발급.   
+계획2 - 발급받은 토큰을 이용해 Music.js에서 음원차트 json 데이터를 받아오기.  
+계획3 - 음원차트페이지 제작.  
   
 ### `About`
 Parallax를 사용한 랜딩페이지  
