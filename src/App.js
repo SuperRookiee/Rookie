@@ -16,7 +16,7 @@ const App = memo(() => {
       <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/music' element={<Music />} />
-          <Route path='/About' element={<About />} />
+          <Route path='/about' element={<About />} />
       </Routes>
     </div>
   );

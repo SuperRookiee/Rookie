@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import ImageView from '../components/ImageView'
 import TextBox from '../components/TextBox'
 
@@ -12,7 +12,7 @@ const view = [
     {title:"SuperRookiee", img: Unsplash, description: "#SuperRookiee"}
 ];
 
-const About = () => {
+const About = memo(() => {
     return (
         <div>
             {view.map((view, i) => {
@@ -25,6 +25,6 @@ const About = () => {
             })}
         </div>
     );
-};
+});
 
 export default About;
