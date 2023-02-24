@@ -11,17 +11,16 @@ React, Redux, styled-components, SCSS
 메인 페이지  
 ![Main1](https://user-images.githubusercontent.com/89756426/221184806-7f27634a-10ae-4f90-9dd3-a4dd5c07574b.png)
 
-
+  
 ### `Music`
 Spotify API르 이용한 음원차트 페이지 (계획 중)  
-  
+
 
 ### `About`
 Parallax를 사용하 랜딩페이지  
-![Rookie 복사본](https://user-images.githubusercontent.com/89756426/221186543-8bc6c930-9966-43ab-ae48-ec105634ecbf.png)
+![About](https://user-images.githubusercontent.com/89756426/221187179-2c640870-fa0c-4ae8-b70f-9acbcd24bc46.png)
 
-
-
+  
 ### `Header`
 해상도가 md사이즈(768px)보다 미만인 경우 Header 변경
 ![side1](https://user-images.githubusercontent.com/89756426/221185031-37323bf0-0f1e-4aef-b0fd-753b0bc6c86e.png)
