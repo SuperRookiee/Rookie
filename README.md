@@ -15,6 +15,7 @@ React, Redux, JavaScript, styled-components, SCSS
 
 해상도가 md사이즈(768px)보다 미만인 경우 Header 변경  
 ![side1](https://user-images.githubusercontent.com/89756426/221185031-37323bf0-0f1e-4aef-b0fd-753b0bc6c86e.png)  
+
 메뉴를 사이드바로 변경  
 ![side2](https://user-images.githubusercontent.com/89756426/221185017-f81d2560-8b51-413c-85c0-1ba21695a0b3.png)  
 
