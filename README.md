@@ -2,7 +2,7 @@
 React.js 포트폴리오
 
 ## 사용 스택
-React, Redux, styled-components, SCSS   
+React, Redux, JavaScript, styled-components, SCSS   
 
 
 ## 페이지 소개
