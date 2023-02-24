@@ -18,11 +18,12 @@ Spotify API르 이용한 음원차트 페이지 (계획 중)
 
 ### `About`
 Parallax를 사용하 랜딩페이지  
-![About1](https://user-images.githubusercontent.com/89756426/221183405-4a582297-a402-401f-82e8-5566352ba079.png)
-![About2](https://user-images.githubusercontent.com/89756426/221183426-93c172ba-d313-4775-a211-a9e33a44da2e.png)
+![Rookie 복사본](https://user-images.githubusercontent.com/89756426/221186543-8bc6c930-9966-43ab-ae48-ec105634ecbf.png)
+
 
 
 ### `Header`
+해상도가 md사이즈(768px)보다 미만인 경우 Header 변경
 ![side1](https://user-images.githubusercontent.com/89756426/221185031-37323bf0-0f1e-4aef-b0fd-753b0bc6c86e.png)
 ![side2](https://user-images.githubusercontent.com/89756426/221185017-f81d2560-8b51-413c-85c0-1ba21695a0b3.png)
 
