@@ -10,9 +10,9 @@ React, Redux, JavaScript, styled-components, SCSS
 ### `Home & Header`
 메인 페이지  
   
-![Main1](https://user-images.githubusercontent.com/89756426/221184806-7f27634a-10ae-4f90-9dd3-a4dd5c07574b.png)  
+![Main1](https://user-images.githubusercontent.com/89756426/221184806-7f27634a-10ae-4f90-9dd3-a4dd5c07574b.png) 
   
-
+  
 해상도가 md사이즈(768px)보다 미만인 경우 Header 변경  
 
 ![side1](https://user-images.githubusercontent.com/89756426/221185031-37323bf0-0f1e-4aef-b0fd-753b0bc6c86e.png)  
@@ -20,7 +20,8 @@ React, Redux, JavaScript, styled-components, SCSS
 메뉴를 사이드바로 변경  
 
 ![side2](https://user-images.githubusercontent.com/89756426/221185017-f81d2560-8b51-413c-85c0-1ba21695a0b3.png)  
-
+  
+###### 처음 접속할 경우 해상독 md사이즈보다 작으며 사이드바가 미노출되는 오류 (수정 예정, 크기를 다시 늘렸다 줄이면 정상작동)  
 
 ### `Music`
 
