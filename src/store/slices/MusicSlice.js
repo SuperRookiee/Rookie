@@ -1,66 +1,72 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import axios from 'axios';
+import { createSlice } from "@reduxjs/toolkit";
+import { getAccessToken } from "../../services/Spotify";
 
-export const getAuth = createAsyncThunk("MusicSlice/getAuth", async (payload, { rejectWithValue }) => {
-    let result = null;
-    const client_id = process.env.REACT_APP_CLIENT_ID;
-    const client_secret = process.env.REACT_APP_CLIENT_SECRET;
-    const redirect_uri = process.env.REACT_APP_REDIRECT_URI;
-    const api_uri = "https://accounts.spotify.com/authorize";
-    const auth = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
+const initialState = {
+  tracks: [],
+  loading: false,
+  error: null,
+};
 
-    try {
-        const response = await axios.post('https://accounts.spotify.com/api/token', 'grant_type=client_credentials', {
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/x-www-form-urlencoded',
-                Authorization: 'Basic ' + auth
-            },
-            auth: {
-                username: client_id,
-                password: client_secret,
-            }
-        });
-        window.localStorage.setItem('token', response.data.access_token);
-        window.location.href = `${api_uri}?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=token&show_dialog=true`;
-        
-        result = response.data.access_token;
-    } catch (err) {
-        result = rejectWithValue(err.response);
-    }
-    return result;
+export const MusicSlice = createSlice({
+  name: "music",
+  initialState,
+  reducers: {
+    setLoading: (state, action) => {
+      state.loading = action.payload;
+    },
+    setError: (state, action) => {
+      state.error = action.payload;
+    },
+    setTracks: (state, action) => {
+      state.tracks = action.payload;
+    },
+    setAccessToken: (state, action) => {
+      state.accessToken = action.payload;
+    },
+  },
 });
 
-const MusicSlice = createSlice({
-    name: 'MusicSlice',
-    initialState: {
-        data: null,
-        loading: false,
-        error: null
-    },
-    extraReducers: {
-        [getAuth.pending]: (state, { payload }) => {
-            return { ...state, loading: true }
+export const { setTracks, setLoading, setError, setAccessToken } = MusicSlice.actions;
+
+export const searchTracks = ({ search, token }) => async (dispatch) => {
+  dispatch(setLoading(true));
+  try {
+    const response = await fetch(
+      `https://api.spotify.com/v1/search?q=${search}&type=track`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-        [getAuth.fulfilled]: (state, { payload }) => {
-            return {
-                data: payload, 
-                loading: false,
-                error: null
-            }
+      }
+    );
+    const { tracks } = await response.json();
+    dispatch(setTracks(tracks.items));
+    dispatch(setLoading(false));
+  } catch (error) {
+    dispatch(setError(error.message));
+    dispatch(setLoading(false));
+  }
+};
+
+export const fetchTracks = () => async (dispatch) => {
+  dispatch(setLoading(true));
+  try {
+    const token = await getAccessToken();
+    const response = await fetch(
+      `https://api.spotify.com/v1/me/tracks?limit=50`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-        [getAuth.rejected]: (state, { payload }) => {
-            return {
-                data: payload, 
-                loading: false,
-                error: payload
-                // error: {
-                //     code: payload.status ? payload.status : 500,
-                //     message: payload.statusText ? payload.statusText : 'Server Error'
-                // }
-            }
-        }
-    },
-});
+      }
+    );
+    const { items } = await response.json();
+    dispatch(setTracks(items));
+    dispatch(setLoading(false));
+  } catch (error) {
+    dispatch(setError(error.message));
+    dispatch(setLoading(false));
+  }
+};
 
 export default MusicSlice.reducer;

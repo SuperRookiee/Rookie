@@ -3,7 +3,7 @@ import MusicSlice from './slices/MusicSlice';
 
 const store = configureStore({
     reducer: {
-        MusicSlice: MusicSlice
+        music: MusicSlice
     },
 
     // 비동기 미들웨어 추가 (Ajax처리가 필요한 경우만 설정)
