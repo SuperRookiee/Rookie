@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import MusicTrack from "./MusicTrack";
 
 const Container = styled.div`
   display: flex;
@@ -48,7 +49,7 @@ function Login() {
   return (
     <Container>
       {isLoggedIn ? (
-        <SuccessMessage>Login에 성공하였습니다.</SuccessMessage>
+        <MusicTrack/>
       ) : <LoginButton onClick={handleLogin}>LOG IN WITH SPOTIFY</LoginButton>}
     </Container>
   );

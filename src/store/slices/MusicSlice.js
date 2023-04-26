@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { setAccessToken } from "../../services/Spotify";
 
 const initialState = {
   tracks: [],
