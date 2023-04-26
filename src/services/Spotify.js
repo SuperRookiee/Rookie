@@ -48,3 +48,18 @@ export const getAccessToken = async () => {
     }, 1000);
   });
 };
+
+export const setAccessToken = (accessToken) => {
+  localStorage.setItem("accessToken", accessToken);
+};
+
+export const searchTracksApi = async (token, query) => {
+  const response = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=track`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await response.json();
+  return data.tracks.items;
+};

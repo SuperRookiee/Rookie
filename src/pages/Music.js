@@ -10,13 +10,14 @@ const MusicContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #f2f2f2;
 `;
 
 const SearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 100px;
   margin-bottom: 20px;
 `;
 
@@ -45,6 +46,10 @@ const Music = () => {
   const [search, setSearch] = useState("");
   const { loading, error, tracks } = useSelector((state) => state.music);
 
+  const params = new URLSearchParams(window.location.hash.substring(1));
+  const accessToken = params.get("access_token");
+  
+
   const handleSearch = async (e) => {
     e.preventDefault();
     if (!search) return;
@@ -57,20 +62,26 @@ const Music = () => {
       {error ? (
         <ErrorContainer>{error}</ErrorContainer>
       ) : (
-        <SearchContainer>
-          <SearchForm onSubmit={handleSearch}>
-            <SearchInput
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search for tracks"
-            />
-            <SearchButton type="submit">Search</SearchButton>
-          </SearchForm>
-        </SearchContainer>
+        <>
+          <Login />
+          <SearchContainer>
+            <SearchForm onSubmit={handleSearch}>
+              <SearchInput
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search for tracks"
+              />
+              <SearchButton type="submit">Search</SearchButton>
+            </SearchForm>
+          </SearchContainer>
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <TrackList tracks={tracks} />
+          )}
+        </>
       )}
-      {tracks.length > 0 && <TrackList tracks={tracks} loading={loading} />}
-      {!tracks.length && !loading && <Login />}
     </MusicContainer>
   );
 };

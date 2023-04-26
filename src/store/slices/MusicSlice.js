@@ -1,36 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAccessToken } from "../../services/Spotify";
+import { setAccessToken } from "../../services/Spotify";
 
 const initialState = {
   tracks: [],
   loading: false,
   error: null,
+  accessToken: null,
 };
 
-export const MusicSlice = createSlice({
-  name: "music",
+const MusicSlice = createSlice({
+  name: 'music',
   initialState,
   reducers: {
+    setTracks: (state, action) => {
+      state.tracks = action.payload;
+    },
     setLoading: (state, action) => {
       state.loading = action.payload;
     },
     setError: (state, action) => {
       state.error = action.payload;
     },
-    setTracks: (state, action) => {
-      state.tracks = action.payload;
-    },
-    setAccessToken: (state, action) => {
-      state.accessToken = action.payload;
-    },
   },
 });
 
-export const { setTracks, setLoading, setError, setAccessToken } = MusicSlice.actions;
 
-export const searchTracks = ({ search, token }) => async (dispatch) => {
+export const { setTracks, setLoading, setError } = MusicSlice.actions;
+
+export const searchTracks = ({ search }) => async (dispatch, getState) => {
   dispatch(setLoading(true));
   try {
+    const token = getState().music.accessToken;
     const response = await fetch(
       `https://api.spotify.com/v1/search?q=${search}&type=track`,
       {
@@ -48,10 +48,10 @@ export const searchTracks = ({ search, token }) => async (dispatch) => {
   }
 };
 
-export const fetchTracks = () => async (dispatch) => {
+export const fetchTracks = () => async (dispatch, getState) => {
   dispatch(setLoading(true));
   try {
-    const token = await getAccessToken();
+    const token = getState().music.accessToken;
     const response = await fetch(
       `https://api.spotify.com/v1/me/tracks?limit=50`,
       {

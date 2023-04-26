@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: 2vh;
 `;
 
-const Title = styled.h1`
-  color: white;
+const SuccessMessage = styled.p`
+  color: black;
+  margin-top: 50px;
 `;
 
 const LoginButton = styled.button`
@@ -26,9 +27,15 @@ const LoginButton = styled.button`
   }
 `;
 
-const code = new URLSearchParams(window.location.search).get("code");
+let accessToken = null;
+const params = new URLSearchParams(window.location.hash.substring(1));
+if (params.has("access_token")) {
+  accessToken = params.get("access_token");
+}
 
 function Login() {
+  const [isLoggedIn, setIsLoggedIn] = useState(accessToken !== null);
+
   const handleLogin = () => {
     const clientId = "6a86b6ac042844b5a04ef3e0e5d7b3da";
     const redirectUri = "http://localhost:3000/music";
@@ -39,16 +46,13 @@ function Login() {
   };
 
   return (
-
     <Container>
-      <Title>Welcome to MusicSlice</Title>
-      {code != null ? (
-        <p>Login에 성공하였습니다.</p>
-      ) : (
-        <button onClick={handleLogin}>LOG IN WITH SPOTIFY</button>
-      )}
+      {isLoggedIn ? (
+        <SuccessMessage>Login에 성공하였습니다.</SuccessMessage>
+      ) : <LoginButton onClick={handleLogin}>LOG IN WITH SPOTIFY</LoginButton>}
     </Container>
   );
 }
 
+export { accessToken };
 export default Login;
