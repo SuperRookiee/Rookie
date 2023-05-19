@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import MusicTrack from "./MusicTrack";
 
 const Container = styled.div`
   display: flex;
