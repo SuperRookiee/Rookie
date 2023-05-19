@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAccessToken } from "../services/Spotify";
 import { searchTracks } from "../store/slices/MusicSlice";
@@ -41,14 +41,12 @@ const ErrorContainer = styled.div`
   color: red;
 `;
 
-const Music = () => {
+const Music = memo(() => {
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
   const { loading, error, tracks } = useSelector((state) => state.music);
 
   const params = new URLSearchParams(window.location.hash.substring(1));
-  const accessToken = params.get("access_token");
-  
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -84,6 +82,6 @@ const Music = () => {
       )}
     </MusicContainer>
   );
-};
+});
 
 export default Music;

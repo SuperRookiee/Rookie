@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -16,10 +16,20 @@ const SuccessMessage = styled.p`
 const LoginButton = styled.button`
   && {
     margin-top: 50px;
-    padding: 15px;
+    color: #fff;
     background-color: #1db954;
-    color: white;
-    font-weight: 800;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 500px;
+    padding: 18px 48px 16px;
+    transition-property: background-color;
+    transition-duration: .3s;
+    border-width: 0;
+    letter-spacing: 2px;
+    min-width: 160px;
+    text-transform: uppercase;
+    white-space: normal;
+    cursor: pointer;
 
     &:hover {
       background-color: #1ed760;
@@ -45,10 +55,16 @@ function Login() {
     window.location.href = url;
   };
 
+  if(accessToken)
+    console.log(accessToken);
+
   return (
     <Container>
       {isLoggedIn ? (
-        <SuccessMessage>Login에 성공하였습니다.</SuccessMessage>
+        <SuccessMessage>
+          <p>Login에 성공하였습니다.</p>
+          {accessToken ? (`토큰값: `+accessToken) : '토큰값 없음'}
+        </SuccessMessage>
       ) : <LoginButton onClick={handleLogin}>LOG IN WITH SPOTIFY</LoginButton>}
     </Container>
   );
