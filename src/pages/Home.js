@@ -31,7 +31,7 @@ const Home = memo(() => {
             <div>
                 React Project
                 <p>
-                    made by H.W
+                    made by G.H.W
                 </p>
             </div>
         </HomeContainer>
