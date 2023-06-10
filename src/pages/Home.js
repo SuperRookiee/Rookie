@@ -30,9 +30,7 @@ const Home = memo(() => {
         <HomeContainer>
             <div>
                 React Project
-                <p>
-                    made by G.H.W
-                </p>
+                <p>made by G.H.W</p>
             </div>
         </HomeContainer>
     );
